@@ -14,6 +14,7 @@ const SortOrder = {
   DURATION: 'DURATION',
 };
 
+
 // Enum for Class of Service
 const ClassOfService = {
   ECONOMY: 'ECONOMY',
@@ -22,7 +23,7 @@ const ClassOfService = {
 
 // Enum for API Key
 const ApiKey = {
-  YOUR_API_KEY_1: '1042ae152bmsh583f10a687e6718p1b4ab3jsnbee46dd4179e',
+  YOUR_API_KEY_1: '919d8df4e0msh343320fea8221a3p1e7733jsn4f7c69f0b2a7',
   // Add more valid API keys here
 };
 
@@ -30,7 +31,6 @@ function App() {
   const [sourceAirportCode, setSourceAirportCode] = useState('');
   const [destinationAirportCode, setDestinationAirportCode] = useState('');
   const [date, setDate] = useState('');
-  const [itineraryType, setItineraryType] = useState(ItineraryType.ONE_WAY); // Default to ONE_WAY
   const [sortOrder, setSortOrder] = useState(SortOrder.PRICE); // Default to PRICE
   const [classOfService, setClassOfService] = useState(ClassOfService.ECONOMY); // Default to ECONOMY
   const [flightResults, setFlightResults] = useState([]);
@@ -53,7 +53,7 @@ function App() {
           sourceAirportCode,
           destinationAirportCode,
           date,
-          itineraryType,
+          itineraryType: ItineraryType.ONE_WAY,
           sortOrder,
           numAdults: 1,
           numSeniors: 0,
@@ -125,17 +125,6 @@ function App() {
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
-        </div>
-        <div>
-          <label htmlFor="itineraryType">Itinerary Type:</label>
-          <select
-            id="itineraryType"
-            value={itineraryType}
-            onChange={(e) => setItineraryType(e.target.value)}
-          >
-            <option value={ItineraryType.ONE_WAY}>One Way</option>
-            <option value={ItineraryType.ROUND_TRIP}>Round Trip</option>
-          </select>
         </div>
         <div>
           <label htmlFor="sortOrder">Sort Order:</label>
@@ -211,3 +200,4 @@ function App() {
 }
 
 export default App;
+
